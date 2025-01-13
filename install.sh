@@ -9,6 +9,7 @@
 #!/bin/bash
 
 # Download and extract Chrome binary
+rm -rf chromedriver/
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O google-chrome-stable.deb
 dpkg-deb -x google-chrome-stable.deb chrome/
 
