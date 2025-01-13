@@ -1,9 +1,11 @@
-# Install wget and apt-transport-https if not already installed
-apt-get update && apt-get install -y wget apt-transport-https
+# Create a directory for Chromium
+mkdir -p chromium
 
-# Add the Google Chrome repository
-wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
-echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list
+# Download the latest portable Chromium build
+wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O chromium/chrome.deb
 
-# Install Google Chrome
-apt-get update && apt-get install -y google-chrome-stable
+# Extract the deb package (since you can't install it directly)
+dpkg-deb -x chromium/chrome.deb chromium/
+
+# Set the Chrome binary path
+mv chromium/opt/google/chrome/chrome chromium/
