@@ -92,7 +92,8 @@ def pytest_html_report_title(report):
 def pytest_html_results_table_header(cells):
 	''' meta programming to modify header of the result'''
 
-	from py.xml import html
+	#from py.xml import html
+	from pytest_html.extras import html
 	# removing old table headers
 	del cells[:]
 	# adding new headers
